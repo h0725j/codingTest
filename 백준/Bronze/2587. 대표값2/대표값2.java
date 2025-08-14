@@ -11,15 +11,12 @@ public class Main {
        int sum = 0;
        for (int i = 0; i < 5; i++) {
            num[i] = Integer.parseInt(reader.readLine());
-       }
-
-       for (int i = 0; i < 5; i++) {
            sum += num[i];
        }
-
+        
         System.out.println(sum / num.length);
-
-       Arrays.sort(num);
+        
+        Arrays.sort(num);
         System.out.println(num[num.length / 2]);
     }
 }
