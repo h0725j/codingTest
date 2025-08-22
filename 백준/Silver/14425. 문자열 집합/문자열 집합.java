@@ -11,7 +11,7 @@ public class Main {
 
         int n = Integer.parseInt(tokenizer.nextToken());
         int m = Integer.parseInt(tokenizer.nextToken());
-        HashSet<String> nList = new HashSet<>();
+        HashSet<String> nList = new HashSet<>(n);
 
         for (int i = 0; i < n; i++) {
             nList.add(reader.readLine());
@@ -19,8 +19,7 @@ public class Main {
 
         int count = 0;
         for (int i = 0; i < m; i++) {
-            String target = reader.readLine();
-            if (nList.contains(target)) {
+            if (nList.contains(reader.readLine())) {
                 count++;
             }
         }
