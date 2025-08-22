@@ -14,14 +14,12 @@ public class Main {
         HashSet<String> nList = new HashSet<>();
 
         for (int i = 0; i < n; i++) {
-            tokenizer = new StringTokenizer(reader.readLine());
-            nList.add(tokenizer.nextToken());
+            nList.add(reader.readLine());
         }
 
         int count = 0;
         for (int i = 0; i < m; i++) {
-            tokenizer = new StringTokenizer(reader.readLine());
-            String target = tokenizer.nextToken();
+            String target = reader.readLine();
             if (nList.contains(target)) {
                 count++;
             }
