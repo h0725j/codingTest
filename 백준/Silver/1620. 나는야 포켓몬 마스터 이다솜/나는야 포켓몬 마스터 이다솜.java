@@ -12,13 +12,13 @@ public class Main {
         int n = Integer.parseInt(tokenizer.nextToken());
         int m = Integer.parseInt(tokenizer.nextToken());
 
-        HashMap<Integer, String> nName = new HashMap<>();
+        String[] nNames = new String[n+1];
         HashMap<String, Integer> nNum = new HashMap<>();
 
 
         for (int i = 1; i <= n; i++) {
             String name = reader.readLine();
-            nName.put(i, name);
+            nNames[i] = name;
             nNum.put(name, i);
         }
 
@@ -28,7 +28,7 @@ public class Main {
 
             try {
                 int num = Integer.parseInt(question);
-                result.append(nName.get(num)).append('\n');
+                result.append(nNames[num]).append('\n');
             } catch (NumberFormatException e) {
                 result.append(nNum.get(question)).append('\n');
             }
