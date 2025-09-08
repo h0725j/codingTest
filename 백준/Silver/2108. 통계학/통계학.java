@@ -9,28 +9,26 @@ public class Main {
         StringBuilder builder = new StringBuilder();
 
         int n = Integer.parseInt(reader.readLine());
-        int[] num = new int[n];
+        int[] count = new int[8001];
         int sum = 0;
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
 
+        int[] num = new int[n];
+
         for (int i = 0; i < n; i++) {
-            num[i] = Integer.parseInt(reader.readLine());
-            sum += num[i];
-            min = Math.min(min, num[i]);
-            max = Math.max(max, num[i]);
+            int value = Integer.parseInt(reader.readLine());
+            num[i] = value;
+            sum += value;
+            min = Math.min(min, value);
+            max = Math.max(max, value);
+            count[value + 4000]++;
         }
 
         builder.append(Math.round((float) sum / n)).append("\n");
 
         Arrays.sort(num);
         builder.append(num[num.length / 2]).append("\n");
-
-        int[] count = new int[8001];
-
-        for (int value : num) {
-            count[value + 4000]++;
-        }
 
         int maxCnt = 0;
         for (int j : count) {
