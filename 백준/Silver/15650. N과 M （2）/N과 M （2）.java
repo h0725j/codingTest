@@ -5,7 +5,6 @@ import java.util.StringTokenizer;
 
 public class Main {
     static int n, m;
-    static boolean[] visited;
     static int[] arr;
     static StringBuilder result = new StringBuilder();
 
@@ -16,7 +15,6 @@ public class Main {
         n = Integer.parseInt(tokenizer.nextToken());
         m = Integer.parseInt(tokenizer.nextToken());
 
-        visited = new boolean[n + 1];
         arr = new int[m];
 
         backtrack(1, 0);
