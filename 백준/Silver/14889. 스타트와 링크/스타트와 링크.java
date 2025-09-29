@@ -16,14 +16,12 @@ public class Main {
             int startSum = 0, linkSum = 0;
 
             // 스타트팀과 링크팀의 능력치 계산
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    if (i != j) {
-                        if (visited[i] && visited[j]) {
-                            startSum += power[i][j];
-                        } else if (!visited[i] && !visited[j]) {
-                            linkSum += power[i][j];
-                        }
+            for (int i = 0; i < n - 1; i++) {
+                for (int j = i + 1; j < n; j++) {
+                    if (visited[i] && visited[j]) {
+                        startSum += power[i][j] + power[j][i];
+                    } else if (!visited[i] && !visited[j]) {
+                        linkSum += power[i][j] + power[j][i];
                     }
                 }
             }
@@ -58,7 +56,8 @@ public class Main {
             }
         }
 
-        backTrack(0, 0); // 0명 선택된 상태에서 0번 선수부터 고려 시작
+        visited[0] = true; // 0번 선수를 항상 스타트팀에 고정
+        backTrack(1, 1); // 1명 선택된 상태로 시작
 
         System.out.println(min);
     }
