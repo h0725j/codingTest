@@ -8,30 +8,15 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(reader.readLine());
 
-        int[] arr = new int[n];
         StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
-        for (int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(tokenizer.nextToken());
-        }
 
-        int[] dp = new int[n];
-        for (int i = 0; i < n; i++) {
-            if (i == 0) {
-                dp[i] = arr[i];
-            } else {
-                if (dp[i -1] <= 0) {
-                    dp[i] = arr[i];
-                } else {
-                    dp[i] = dp[i-1] + arr[i];
-                }
-            }
-        }
+        int current = Integer.parseInt(tokenizer.nextToken());
+        int max = current;
 
-        int max = Integer.MIN_VALUE;
-        for (int i = 0; i < n; i++) {
-            if (dp[i] > max) {
-                max = dp[i];
-            }
+        for (int i = 1; i < n; i++) {
+            int num = Integer.parseInt(tokenizer.nextToken());
+            current = Math.max(current + num, num);
+            max = Math.max(max, current);
         }
 
         System.out.println(max);
