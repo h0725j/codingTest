@@ -18,13 +18,14 @@ public class Main {
 
         Arrays.sort(arr);
 
-        int sum = 0;
+        int totalSum = 0;
+        int currentSum = 0;
+        
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j <= i; j++) {
-                sum += arr[j];
-            }
+            currentSum += arr[i];
+            totalSum += currentSum;
         }
 
-        System.out.println(sum);
+        System.out.println(totalSum);
     }
 }
