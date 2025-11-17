@@ -14,11 +14,15 @@ public class Solution {
     }
 
     static int math(int n, int m) {
-        int result = n;
-        while (m > 1) {
-            result *= n;
-            m--;
+        if (m == 0) return 1;
+        if (m == 1) return n;
+        
+        int half = math(n, m / 2);
+        
+        if (m % 2 == 0) {
+            return half * half;
+        } else {
+            return half * half * n;
         }
-        return result;
     }
 }
