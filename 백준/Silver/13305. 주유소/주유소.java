@@ -3,33 +3,36 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Main {
-
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        int n = Integer.parseInt(reader.readLine());
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int[] lengths = new int[n - 1];
-        StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
+        int n = Integer.parseInt(br.readLine());
+
+        long[] dist = new long[n - 1];
+        long[] price = new long[n];
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n - 1; i++) {
-            lengths[i] = Integer.parseInt(tokenizer.nextToken());
+            dist[i] = Long.parseLong(st.nextToken());
         }
 
-        int[] prices = new int[n];
-        tokenizer = new StringTokenizer(reader.readLine());
+        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            prices[i] = Integer.parseInt(tokenizer.nextToken());
+            price[i] = Long.parseLong(st.nextToken());
         }
 
-        int min = Integer.MAX_VALUE, sum = 0;
+        long minPrice = price[0];
+        long answer = 0;
 
         for (int i = 0; i < n - 1; i++) {
-            if (prices[i] < min) {
-                min = prices[i];
+            if (price[i] < minPrice) {
+                minPrice = price[i];
             }
-            sum = sum + (min * lengths[i]);
+            answer += minPrice * dist[i];
         }
 
-        System.out.println(sum);
+        System.out.println(answer);
     }
 }
